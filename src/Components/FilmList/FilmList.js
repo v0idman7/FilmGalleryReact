@@ -9,6 +9,7 @@ const getPage = (state) => state.page.page;
 const getSort = (state) => state.page.sort;
 const getAdd = (state) => state.films.add;
 const getEdit = (state) => state.films.edit;
+const getDelete = (state) => state.films.delete;
 
 function FilmList() {
   const [films, setFilms] = useState(null)
@@ -16,6 +17,7 @@ function FilmList() {
   const sort = useSelector(getSort);
   const addFilms = useSelector(getAdd);
   const editFilms = useSelector(getEdit);
+  const deleteFilms = useSelector(getDelete);
 
   useEffect(() => {
     getFilms(page, sort).then((result) => {
@@ -31,9 +33,14 @@ function FilmList() {
           }
         }
       }
+      if (deleteFilms.length !== 0) {
+        for (let i = 0; i < deleteFilms.length; i++) {
+          display = display.filter(item => String(item.id) !== String(deleteFilms[i]))
+        }
+      }
       setFilms(display)
     })
-  },[page, sort, addFilms, editFilms]);
+  },[page, sort, addFilms, editFilms, deleteFilms]);
  
   return ( 
     <ul className="filmList">

@@ -21,8 +21,8 @@ const  filmsReducer = (state = initialState, action) => {
         edit: [...state.edit, action.payload],
       }
     case DELETE_FILM:
-      const add1 = state.add.filter(item => item.id !== action.payload);
-      const edit = state.edit.filter(item => item.id !== action.payload);
+      const add1 = state.add.filter(item => String(item.id) !== String(action.payload));
+      const edit = state.edit.filter(item => String(item.id) !== String(action.payload));
       return {
         ...state,
         add: add1,
