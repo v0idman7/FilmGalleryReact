@@ -22,7 +22,7 @@ function Pagination() {
   }
 
   return ( 
-    <div>
+    <div className="pages">
       <button 
         className="pages__link" 
         onClick={handleClickPrev} 

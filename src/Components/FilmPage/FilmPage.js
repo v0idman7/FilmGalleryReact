@@ -28,7 +28,6 @@ function FilmPage(props) {
       return false;
     } else if (type === 'Edit') {
       for(let j = 0; j < editFilms.length; j++){
-        console.log(id, editFilms[j].id)
         if (String(editFilms[j].id) === id) {
           return j
         };
@@ -41,9 +40,7 @@ function FilmPage(props) {
   const idFilmEdit = checkID(id, 'Edit');
 
   useEffect(() => {
-    console.log(editFilms.length, idFilmEdit)
     if (editFilms.length !== 0 && idFilmEdit !== false) {
-      console.log(editFilms[idFilmEdit])
       setFilm(editFilms[idFilmEdit]);
     }else if (addFilms.length !== 0 && idFilmAdd !== false) {
       setFilm(addFilms[idFilmAdd]);
