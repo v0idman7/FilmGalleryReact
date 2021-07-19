@@ -10,7 +10,7 @@ import { css } from '@emotion/react'
 import { Link } from 'react-router-dom'
 
 function SvgLink(props) {
-  const { svg, size } =  props;
+  const { svg, size, id } =  props;
   const img = (svg) =>{
     switch (svg) {
       case 'Home': return home;
@@ -27,7 +27,7 @@ function SvgLink(props) {
       case 'Delete': return '/';
       case 'Delete1': return '/';
       case 'Plus': return '/Add';
-      case 'Edit': return '/';
+      case 'Edit': return `/Edit${id}`;
       default: return '/';
     }
   }
