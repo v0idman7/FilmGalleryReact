@@ -12,7 +12,7 @@ function Film(props) {
 
   return ( 
     <div  className="filmList-item">
-      {isAdmin ? <SvgLink svg="Delete" size="20" id={id}></SvgLink> : null}
+      {isAdmin ? <SvgLink svg="Delete" size="20" id={id} /> : null}
       <Link className="film-poster" to={'/Film' + id}>
         <img 
           className="film-poster" 

@@ -58,8 +58,7 @@ function SvgLink(props) {
     :
     <Link className="svg-link" 
       to={to(svg)} 
-      css={style}>
-    </Link>
+      css={style} />
     
   );
 }

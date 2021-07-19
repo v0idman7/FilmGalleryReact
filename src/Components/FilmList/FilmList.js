@@ -46,9 +46,15 @@ function FilmList() {
     <ul className="filmList">
         {films !== null ? films.map((film) => (
           <li key={film.id} className="listItem">
-            <Film id={film.id} poster={film.poster_path} title={film.title} rating={film.vote_average} release={film.release_date}></Film>
+            <Film 
+              id={film.id} 
+              poster={film.poster_path} 
+              title={film.title} 
+              rating={film.vote_average} 
+              release={film.release_date} 
+            />
           </li>
-        )): <Loader></Loader>}
+        )): <Loader />}
     </ul>
   );
 }

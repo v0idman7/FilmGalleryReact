@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { getGenres, getFilmPage } from '../../Services';
 import { Field, Formik } from 'formik';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 import { editFilm } from '../../store/actions';
 
 const getAdd = (state) => state.films.add;
+const getIsAdmin = (state) => state.users.isAdmin;
 
 function FilmEdit() {
+  const isAdmin = useSelector(getIsAdmin);
   const { id } = useParams();
   const dispatch = useDispatch();
   const addFilms = useSelector(getAdd);
@@ -51,6 +53,7 @@ function FilmEdit() {
   }
 
   return ( 
+    isAdmin ? (
     film !== null && genres !== null ?
     <Formik 
       initialValues={{
@@ -77,7 +80,7 @@ function FilmEdit() {
         })
       }
       validateOnBlur
-      onSubmit = { (values, actions) => {
+      onSubmit = { (values) => {
         const newFilm = {
           id: film.id,
           title: values.title,
@@ -91,7 +94,6 @@ function FilmEdit() {
           adult: values.adult,
         }
         dispatch(editFilm(newFilm));
-        actions.resetForm();
       }}
     >
       {({values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty, resetForm}) => (
@@ -213,7 +215,8 @@ function FilmEdit() {
       </fieldset>
       )}
     </Formik>
-    : null
+    : null)
+    : <Redirect to="/NotFound" />
   );
 }
 

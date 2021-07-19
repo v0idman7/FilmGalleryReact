@@ -3,10 +3,14 @@ import { nanoid } from 'nanoid';
 import { getGenres } from '../../Services';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFilm } from '../../store/actions';
+import { Redirect } from 'react-router-dom';
+
+const getIsAdmin = (state) => state.users.isAdmin;
 
 function FilmAdd() {
+  const isAdmin = useSelector(getIsAdmin);
   const dispatch = useDispatch();
   const [genres, setGenres] = useState(null)
   useEffect(() => {
@@ -27,6 +31,7 @@ function FilmAdd() {
   }
 
   return ( 
+    isAdmin ? (
     genres !== null ?
     <Formik 
       initialValues={{
@@ -189,7 +194,8 @@ function FilmAdd() {
       </fieldset>
       )}
     </Formik>
-    : null
+    : null )
+    : <Redirect to="/NotFound" />
   );
 }
 

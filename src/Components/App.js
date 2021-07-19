@@ -13,6 +13,7 @@ import SignUp from './SignUp/SignUp'
 import Pagination from './Pagination/Pagination';
 import { useSelector } from 'react-redux';
 import FilmEdit from './FilmEdit/FilmEdit';
+import NotFound from './NotFound/NotFound';
 
 const getIsAdmin = (state) => state.users.isAdmin;
 
@@ -20,30 +21,33 @@ function App() {
   const isAdmin = useSelector(getIsAdmin);
   return (
     <Router>
-      <Header></Header>
+      <Header />
       <Switch>
-        <Route exact path="/">
+        <Route path="/" exact>
           <section className="filmSection">
-            <FilmSort></FilmSort>
-            {isAdmin ? <SvgLink svg="Plus" size="30"></SvgLink> : null}
-            <FilmList></FilmList>
-            <Pagination></Pagination>
+            <FilmSort />
+            {isAdmin ? <SvgLink svg="Plus" size="30" /> : null}
+            <FilmList />
+            <Pagination />
           </section>
         </Route>
-        <Route path="/Add">
-          <FilmAdd></FilmAdd>
+        <Route path="/Add" exact>
+          <FilmAdd />
         </Route>
-        <Route path="/Edit:id">
-          <FilmEdit></FilmEdit>
+        <Route path="/Edit:id" exact>
+          <FilmEdit />
         </Route>
-        <Route path="/SignIn">
-          <SignIn></SignIn>
+        <Route path="/SignIn" exact>
+          <SignIn />
         </Route>
-        <Route path="/SignUp">
-          <SignUp></SignUp>
+        <Route path="/SignUp" exact>
+          <SignUp />
         </Route>
-        <Route path="/Film:id">
-          <FilmPage></FilmPage>
+        <Route path="/Film:id" exact>
+          <FilmPage />
+        </Route>
+        <Route path="/NotFound" exact>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

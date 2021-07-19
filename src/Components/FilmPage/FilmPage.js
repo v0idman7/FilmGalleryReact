@@ -50,8 +50,8 @@ function FilmPage(props) {
   return (
     film !== null ? ( <section className="film">
       <img className="film__poster" src={film.poster_path !== null ? `https://image.tmdb.org/t/p/w500${film.poster_path}` : defaultPoster} alt="Film poster"/>
-      {isAdmin ? <SvgLink svg="Delete1" size={40} id={film.id}></SvgLink> : null}
-      {isAdmin ? <SvgLink svg="Edit" size={40} id={film.id}></SvgLink> : null}
+      {isAdmin ? <SvgLink svg="Delete1" size={40} id={film.id} /> : null}
+      {isAdmin ? <SvgLink svg="Edit" size={40} id={film.id} /> : null}
       <div className="film__info">
         <span className="film__name">{film.title}</span>
         <span className="film__rating">{film.vote_average}</span>
@@ -61,7 +61,7 @@ function FilmPage(props) {
         {film.tagline ? <span className="film__slogan">{film.tagline}</span> : null}
         <p className="film__about">{film.overview}</p>
       </div>
-    </section>) : <Loader></Loader>
+    </section>) : <Loader />
   );
 }
 

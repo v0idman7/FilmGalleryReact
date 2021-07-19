@@ -5,8 +5,8 @@ import './Header.scss';
 function Header() {
   return ( 
     <header className="header">
-      <SvgLink svg={'Home'} size={50}></SvgLink>
-      <HeaderInfo></HeaderInfo>
+      <SvgLink svg={'Home'} size={50} />
+      <HeaderInfo />
     </header>
   );
 }

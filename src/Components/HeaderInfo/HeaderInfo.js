@@ -1,7 +1,7 @@
 import './HeaderInfo.scss';
 
-import { Link } from 'react-router-dom'
-import { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom'
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser, setFileUsers } from '../../store/actions'
 import userJSON from '../../dummy_data/users.json'
@@ -9,8 +9,10 @@ import userJSON from '../../dummy_data/users.json'
 const getUsername = (state) => state.users.username;
 
 function HeaderInfo() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const username = useSelector(getUsername);
+  const [display, setDisplay] = useState(true);
 
   const signOut = () => {
     dispatch(logoutUser());
@@ -20,14 +22,20 @@ function HeaderInfo() {
     dispatch(setFileUsers(userJSON));
   },[dispatch]);
 
+  useEffect(() => {
+    setDisplay(history.location.pathname !== '/SignIn' && history.location.pathname !== '/SignUp');
+  },[history.location.pathname]);
+
   return ( 
-    <div className="header-info">
-      <span className="username">{username}</span>
-      {username ? 
-        <button className="sign" onClick={signOut}>Sign Out</button> :
-        <Link className="sign" to="/SignIn">Sign In</Link>
-      }
-    </div>
+    display ?
+      <div className="header-info">
+        {username ? <span className="username">{username}</span> : null}
+        {username ? 
+          <button className="sign" onClick={signOut}>Sign Out</button> :
+          <Link className="sign" to="/SignIn">Sign In / Sing Up</Link>
+        }
+      </div>
+    : null
   );
 }
 
