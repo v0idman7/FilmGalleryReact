@@ -7,4 +7,4 @@
 - [sergeyvoitkevich@mail.ru](mailto:sergeyvoitkevich@mail.ru)
 
 ## Предпросмотр
-* [Netlify](https://)
+* [Netlify](https://film-gallery-react.netlify.app/)
