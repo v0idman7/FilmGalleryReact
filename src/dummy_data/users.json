@@ -1,0 +1,22 @@
+{
+  "admin": {
+    "name": "admin",
+    "surname": "admin",
+    "password": "adminadmin",
+    "email": "admin@email.com"
+  },
+  "users": [
+    {
+      "name": "user",
+      "surname": "user",
+      "password": "useruser",
+      "email": "user@email.com"
+    },
+    {
+      "name": "Sergey",
+      "surname": "Voitkevich",
+      "password": "qwerty123",
+      "email": "sergeyvoitkevich@mail.ru"
+    }
+  ]
+}

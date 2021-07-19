@@ -1,0 +1,12 @@
+.filmList {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));//1fr 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 40px;
+  padding: 15px 0 0;
+}
+.listItem {
+  position: relative;
+  list-style: none;
+}

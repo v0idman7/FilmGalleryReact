@@ -1,0 +1,21 @@
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.username {
+  height: 30px;
+  line-height: 30px;
+}
+
+.sign {
+  width: 150px;
+  height: 30px;
+  margin-left: 15px;
+  border: 1px solid #000000;
+  line-height: 30px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0 25px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  &__input {
+    margin-top: 15px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  &__toReg {
+    padding: 1px 6px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  &__alert {
+    margin-top: 5px;
+    color: #ff0000;
+  }
+}
