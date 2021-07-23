@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import { deleteFilm } from '../../store/actions';
 
 /** @jsxImportSource @emotion/react */
-import home from '../../images/design/Home.svg'
-import del from '../../images/design/Delete.svg'
-import plus from '../../images/design/Plus.svg'
-import edit from '../../images/design/Edit.svg'
+import home from '../../asset/images/design/Home.svg'
+import del from '../../asset/images/design/Delete.svg'
+import plus from '../../asset/images/design/Plus.svg'
+import edit from '../../asset/images/design/Edit.svg'
 
 import './SvgLink.scss';
 

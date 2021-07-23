@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import { getGenres } from '../../Services';
+import { getGenres } from '../../services';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFilm } from '../../store/actions';
 import { Redirect } from 'react-router-dom';
 
-const getIsAdmin = (state) => state.users.isAdmin;
-
 function FilmAdd() {
-  const isAdmin = useSelector(getIsAdmin);
+  const isAdmin = useSelector((state) => state.users.isAdmin);
   const dispatch = useDispatch();
   const [genres, setGenres] = useState(null)
+  
   useEffect(() => {
     getGenres().then((result) => setGenres(result.genres));
   },([]));
@@ -188,7 +187,12 @@ function FilmAdd() {
         Adult</label>
         <div className="form__alert"></div>
         <div className="form__buttons">
-          <button className="form__add" type="submit" onClick={handleSubmit}>Add</button>
+          <button 
+            className="form__add" 
+            type="submit" 
+            onClick={handleSubmit}
+            disabled={!isValid || !dirty}
+            >Add</button>
           <button className="form__clear" type="reset" onClick={resetForm}>Clear</button>
         </div>
       </fieldset>

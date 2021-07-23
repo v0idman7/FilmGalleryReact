@@ -15,10 +15,8 @@ import { useSelector } from 'react-redux';
 import FilmEdit from './FilmEdit/FilmEdit';
 import NotFound from './NotFound/NotFound';
 
-const getIsAdmin = (state) => state.users.isAdmin;
-
 function App() {
-  const isAdmin = useSelector(getIsAdmin);
+  const isAdmin = useSelector((state) => state.users.isAdmin);
   return (
     <Router>
       <Header />

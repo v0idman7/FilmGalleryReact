@@ -6,12 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser, setFileUsers } from '../../store/actions'
 import userJSON from '../../dummy_data/users.json'
 
-const getUsername = (state) => state.users.username;
-
 function HeaderInfo() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const username = useSelector(getUsername);
+  const username = useSelector((state) => state.users.username);
   const [display, setDisplay] = useState(true);
 
   const signOut = () => {

@@ -1,22 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getFilmPage } from '../../Services';
+import { getFilmPage } from '../../services';
 import './FilmPage.scss';
-import defaultPoster from '../../images/content/Poster.png';
+import defaultPoster from '../../asset/images/content/Poster.png';
 import { useParams } from 'react-router-dom';
 import SvgLink from '../SvgLink/SvgLink';
 import Loader from '../Loader/Loader';
 
-const getIsAdmin = (state) => state.users.isAdmin;
-const getAdd = (state) => state.films.add;
-const getEdit = (state) => state.films.edit;
-
-function FilmPage(props) {
+function FilmPage() {
   const { id } = useParams();
   const [film, setFilm] = useState(null);
-  const isAdmin = useSelector(getIsAdmin);
-  const addFilms = useSelector(getAdd);
-  const editFilms = useSelector(getEdit);
+  const isAdmin = useSelector((state) => state.users.isAdmin);
+  const addFilms = useSelector((state) => state.films.add);
+  const editFilms = useSelector((state) => state.films.edit);
 
   const checkID = (id, type) => {
     if (type === 'Add') {

@@ -14,10 +14,8 @@ const  filmsReducer = (state = initialState, action) => {
         add: [...state.add, action.payload],
       };
     case EDIT_FILM:
-      const add = state.add.filter(item => item.id !== action.payload.id);
       return {
         ...state,
-        add: add,
         edit: [...state.edit, action.payload],
       }
     case DELETE_FILM:

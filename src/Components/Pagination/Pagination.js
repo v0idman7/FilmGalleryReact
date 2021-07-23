@@ -2,11 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, toPage } from '../../store/actions';
 import './Pagination.scss';
 
-const getPage = (state) => state.page.page;
-
 function Pagination() {
   const dispatch = useDispatch();
-  const page = useSelector(getPage);
+  const page = useSelector((state) => state.page.page);
   const numPages = 15;
 
   const handleClickPrev = () => {

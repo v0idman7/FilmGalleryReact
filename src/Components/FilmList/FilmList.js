@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getFilms } from '../../Services';
+import { getFilms } from '../../services';
 import Film from '../Film/Film';
 import Loader from '../Loader/Loader';
 import './FilmList.scss';
 
-const getPage = (state) => state.page.page;
-const getSort = (state) => state.page.sort;
-const getAdd = (state) => state.films.add;
-const getEdit = (state) => state.films.edit;
-const getDelete = (state) => state.films.delete;
-
 function FilmList() {
   const [films, setFilms] = useState(null)
-  const page = useSelector(getPage);
-  const sort = useSelector(getSort);
-  const addFilms = useSelector(getAdd);
-  const editFilms = useSelector(getEdit);
-  const deleteFilms = useSelector(getDelete);
+  const page = useSelector((state) => state.page.page);
+  const sort = useSelector((state) => state.page.sort);
+  const addFilms = useSelector((state) => state.films.add);
+  const editFilms = useSelector((state) => state.films.edit);
+  const deleteFilms = useSelector((state) => state.films.delete);
 
   useEffect(() => {
     getFilms(page, sort).then((result) => {

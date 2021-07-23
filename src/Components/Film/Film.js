@@ -1,13 +1,11 @@
 import SvgLink from '../SvgLink/SvgLink';
 import './Film.scss';
-import defaultPoster from '../../images/content/Poster.png'
+import defaultPoster from '../../asset/images/content/Poster.png'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const getIsAdmin = (state) => state.users.isAdmin;
-
 function Film(props) {
-  const isAdmin = useSelector(getIsAdmin);
+  const isAdmin = useSelector((state) => state.users.isAdmin);
   const { id, poster, title, rating, release } = props;
 
   return ( 

@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
-import { getGenres, getFilmPage } from '../../Services';
+import { getGenres, getFilmPage } from '../../services';
 import { Field, Formik } from 'formik';
 import { Redirect, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 import { editFilm } from '../../store/actions';
 
-const getAdd = (state) => state.films.add;
-const getIsAdmin = (state) => state.users.isAdmin;
-
 function FilmEdit() {
-  const isAdmin = useSelector(getIsAdmin);
+  const isAdmin = useSelector((state) => state.users.isAdmin);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const addFilms = useSelector(getAdd);
+  const addFilms = useSelector((state) => state.films.add);
   const [genres, setGenres] = useState(null)
   const [film, setFilm] = useState(null);
 
