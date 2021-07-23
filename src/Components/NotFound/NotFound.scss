@@ -1,0 +1,15 @@
+.error {
+  display: block;
+  text-align: center;
+  font-size: 72px;
+  font-weight: 700;
+
+  &__num {
+    display: block;
+    text-align: center;
+    font-size: 96px;
+    font-weight: 900;
+    color: #ff0000;
+
+  }
+}
