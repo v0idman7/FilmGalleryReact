@@ -1,6 +1,7 @@
+import './FilmSort.scss';
+
 import { useDispatch } from 'react-redux';
 import { filmSort } from '../../store/actions';
-import './FilmSort.scss';
 
 function FilmSort() {
   const dispatch = useDispatch();

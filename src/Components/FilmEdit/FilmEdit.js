@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getGenres, getFilmPage } from '../../services';
 import { Field, Formik } from 'formik';
 import { Redirect, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
+import { getGenres, getFilmPage } from '../../services';
 import { editFilm } from '../../store/actions';
 
 function FilmEdit() {

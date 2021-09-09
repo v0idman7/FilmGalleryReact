@@ -1,6 +1,7 @@
+import './Pagination.scss';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, toPage } from '../../store/actions';
-import './Pagination.scss';
 
 function Pagination() {
   const dispatch = useDispatch();

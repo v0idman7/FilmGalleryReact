@@ -1,16 +1,16 @@
+/** @jsxImportSource @emotion/react */
+
+import './SvgLink.scss';
+
 import { useDispatch } from 'react-redux';
+import { css } from '@emotion/react'
+import { Link, useHistory } from 'react-router-dom'
 import { deleteFilm } from '../../store/actions';
 
-/** @jsxImportSource @emotion/react */
 import home from '../../asset/images/design/Home.svg'
 import del from '../../asset/images/design/Delete.svg'
 import plus from '../../asset/images/design/Plus.svg'
 import edit from '../../asset/images/design/Edit.svg'
-
-import './SvgLink.scss';
-
-import { css } from '@emotion/react'
-import { Link, useHistory } from 'react-router-dom'
 
 function SvgLink(props) {
   const { svg, size, id } =  props;

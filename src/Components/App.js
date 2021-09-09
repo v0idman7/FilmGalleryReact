@@ -1,6 +1,7 @@
 import './App.scss';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 import Header from './Header/Header'
 import FilmSort from './FilmSort/FilmSort'
@@ -11,7 +12,6 @@ import FilmAdd from './FilmAdd/FilmAdd';
 import SignIn from './SignIn/SignIn'
 import SignUp from './SignUp/SignUp'
 import Pagination from './Pagination/Pagination';
-import { useSelector } from 'react-redux';
 import FilmEdit from './FilmEdit/FilmEdit';
 import NotFound from './NotFound/NotFound';
 

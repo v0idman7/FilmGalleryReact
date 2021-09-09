@@ -1,9 +1,10 @@
+import './FilmList.scss';
+
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getFilms } from '../../services';
 import Film from '../Film/Film';
 import Loader from '../Loader/Loader';
-import './FilmList.scss';
 
 function FilmList() {
   const [films, setFilms] = useState(null)

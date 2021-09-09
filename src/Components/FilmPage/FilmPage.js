@@ -1,9 +1,10 @@
+import './FilmPage.scss';
+
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getFilmPage } from '../../services';
-import './FilmPage.scss';
-import defaultPoster from '../../asset/images/content/Poster.png';
 import { useParams } from 'react-router-dom';
+import { getFilmPage } from '../../services';
+import defaultPoster from '../../asset/images/content/Poster.png';
 import SvgLink from '../SvgLink/SvgLink';
 import Loader from '../Loader/Loader';
 

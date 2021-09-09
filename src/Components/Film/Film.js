@@ -1,8 +1,9 @@
-import SvgLink from '../SvgLink/SvgLink';
 import './Film.scss';
-import defaultPoster from '../../asset/images/content/Poster.png'
+
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import SvgLink from '../SvgLink/SvgLink';
+import defaultPoster from '../../asset/images/content/Poster.png'
 
 function Film(props) {
   const isAdmin = useSelector((state) => state.users.isAdmin);
@@ -18,7 +19,9 @@ function Film(props) {
           alt="Film Poster"
         />
       </Link>
-      <span className="film-name">{title}</span>
+      <div className="film-name">
+        <span className="film-name-text">{title}</span>
+      </div>
       <div className="film-info">
         <span className="film-rating">{rating}</span>
         <span className="film-release">{release}</span>

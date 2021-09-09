@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import { getGenres } from '../../services';
 import { Field, Formik } from 'formik';
+import { Redirect } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
+import { getGenres } from '../../services';
 import { addFilm } from '../../store/actions';
-import { Redirect } from 'react-router-dom';
 
 function FilmAdd() {
   const isAdmin = useSelector((state) => state.users.isAdmin);
