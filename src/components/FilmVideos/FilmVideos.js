@@ -110,7 +110,7 @@ function FilmVideos(props) {
                 title={video.name}
                 width="450" 
                 height="250" 
-                src={'http://www.youtube.com/embed/' + video.key}
+                src={'https://www.youtube.com/embed/' + video.key}
                 frameborder="0"
                 allowfullscreen="allowfullscreen">
               </iframe>
