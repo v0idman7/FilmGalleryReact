@@ -43,11 +43,6 @@ function FilmVideos(props) {
     });
   },[id, tab]);
   
-  /* useEffect(() => {
-    getVideos(id).then((result) => setVideos(result));
-  },[videos, tab]); */
-
-  console.log(29 - (29 - 29 % 29 * (29 + 29 * 29 - 29)))
   return (
     videos !== null ? (
       <div>

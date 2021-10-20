@@ -45,9 +45,6 @@ function FilmPage() {
     }else getFilmPage(id).then((result) => setFilm(result));
   },[id, addFilms, idFilmEdit, idFilmAdd, editFilms]);
 
-  console.log('idFilmAdd',idFilmAdd)
-  console.log('idFilmEdit',idFilmEdit)
-
   return (
     film !== null ? ( <section className="film">
       <img className="film__poster" src={film.poster_path !== null ? `https://image.tmdb.org/t/p/w500${film.poster_path}` : defaultPoster} alt="Film poster"/>
