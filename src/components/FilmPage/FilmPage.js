@@ -7,6 +7,7 @@ import { getFilmPage } from '../../services';
 import defaultPoster from '../../asset/images/content/Poster.png';
 import SvgLink from '../SvgLink/SvgLink';
 import Loader from '../Loader/Loader';
+import FilmVideos from '../FilmVideos/FilmVideos';
 
 function FilmPage() {
   const { id } = useParams();
@@ -44,6 +45,9 @@ function FilmPage() {
     }else getFilmPage(id).then((result) => setFilm(result));
   },[id, addFilms, idFilmEdit, idFilmAdd, editFilms]);
 
+  console.log('idFilmAdd',idFilmAdd)
+  console.log('idFilmEdit',idFilmEdit)
+
   return (
     film !== null ? ( <section className="film">
       <img className="film__poster" src={film.poster_path !== null ? `https://image.tmdb.org/t/p/w500${film.poster_path}` : defaultPoster} alt="Film poster"/>
@@ -57,6 +61,7 @@ function FilmPage() {
         <span className="film__genres">{film.genres.map((item) => item.name).join(', ')}</span>
         {film.tagline ? <span className="film__slogan">{film.tagline}</span> : null}
         <p className="film__about">{film.overview}</p>
+        {idFilmAdd === false ? <FilmVideos id={id}/> : null}
       </div>
     </section>) : <Loader />
   );

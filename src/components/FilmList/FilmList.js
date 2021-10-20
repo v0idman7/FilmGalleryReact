@@ -15,26 +15,37 @@ function FilmList() {
   const deleteFilms = useSelector((state) => state.films.delete);
 
   useEffect(() => {
-    getFilms(page, sort).then((result) => {
-      let display = [];
-      if (addFilms.length !== 0 && page===1) {
-        display = [...addFilms, ...result.results.slice(addFilms.length)]
-      } else display = result.results
+    const sortAddFilms = (filmList) => {
+      return (addFilms.length !== 0 && page===1) ? [...addFilms, ...filmList.slice(addFilms.length)] : filmList;
+    }
+  
+    const sortEditFilms = (filmList) => {
       if (editFilms.length !== 0) {
         for (let i = 0; i < editFilms.length; i++) {
-          for (let j = 0; j < display.length; j++) {
-            if (editFilms[i].id === display[j].id)
-              display[j] = editFilms[i]
+          for (let j = 0; j < filmList.length; j++) {
+            if (editFilms[i].id === filmList[j].id) {
+              filmList[j] = editFilms[i];
+            }
           }
         }
       }
+      return filmList;
+    }
+  
+    const sortDeleteFilms = (filmList) => {
       if (deleteFilms.length !== 0) {
         for (let i = 0; i < deleteFilms.length; i++) {
-          display = display.filter(item => String(item.id) !== String(deleteFilms[i]))
+          filmList = filmList.filter(item => String(item.id) !== String(deleteFilms[i]));
         }
       }
+      return filmList;
+    }
+
+    getFilms(page, sort).then((result) => {
+      let display = sortDeleteFilms(sortEditFilms(sortAddFilms(result.results)));
       setFilms(display)
     })
+    
   },[page, sort, addFilms, editFilms, deleteFilms]);
  
   return ( 

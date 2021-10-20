@@ -11,26 +11,38 @@ function FilmEdit() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const addFilms = useSelector((state) => state.films.add);
+  const editFilms = useSelector((state) => state.films.edit);
   const [genres, setGenres] = useState(null)
   const [film, setFilm] = useState(null);
 
-  const checkID = (id) => {
-    for(let i = 0; i < addFilms.length; i++){
-      if (addFilms[i].id === id) {
-        return i
-      };
+  const checkID = (id, type) => {
+    if (type === 'Add') {
+      for(let i = 0; i < addFilms.length; i++){
+        if (addFilms[i].id === id) {
+          return i
+        };
+      }
+      return false;
+    } else if (type === 'Edit') {
+      for(let j = 0; j < editFilms.length; j++){
+        if (String(editFilms[j].id) === id) {
+          return j
+        };
+      }
+      return false;
     }
-    return false;
   }
 
-  const idFilm = checkID(id);
+  const idFilmAdd = checkID(id, 'Add');
+  const idFilmEdit = checkID(id, 'Edit');
 
   useEffect(() => {
-    if (addFilms.length !== 0 && idFilm !== false) {
-      setFilm(addFilms[idFilm]);
-    }
-    else getFilmPage(id).then((result) => setFilm(result));
-  },[id, addFilms, idFilm]);
+    if (editFilms.length !== 0 && idFilmEdit !== false) {
+      setFilm(editFilms[idFilmEdit]);
+    }else if (addFilms.length !== 0 && idFilmAdd !== false) {
+      setFilm(addFilms[idFilmAdd]);
+    }else getFilmPage(id).then((result) => setFilm(result));
+  },[id, addFilms, idFilmEdit, idFilmAdd, editFilms]);
 
   useEffect(() => {
     getGenres().then((result) => setGenres(result.genres));
